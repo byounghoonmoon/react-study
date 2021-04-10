@@ -3,10 +3,7 @@ import React, { Component } from "react";
 class TOC extends Component {
 
   shouldComponentUpdate(newProps, newState){
-    console.log('======> TOC shouldComponentUpdate render '
-      ,newProps.data
-      ,this.props.data    
-    )
+    
     if(this.props.data === newProps.data){
       return false 
     }
@@ -14,7 +11,6 @@ class TOC extends Component {
   }
 
   render() {
-    console.log('======> TOC render ')
     var lists =[];
     var data = this.props.data;
     var i=0;
