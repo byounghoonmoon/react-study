@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
     this.max_content_id = 3;
     this.state = {
-      mode: "create",
+      mode: "welcome",
       welcome: { title: "Welcome", desc: "Hello, React!!" },
       subject: { title: "WEB", sub: "World Wide Web!" },
       contents: [
@@ -57,7 +57,11 @@ class App extends Component {
             var _contents = Array.from(this.state.contents);
             _contents.push({id: this.max_content_id,title: _title,desc: _desc});
 
-            this.setState({ contents: _contents });
+            this.setState({ 
+              mode:'read', 
+              contents: _contents, 
+              selected_content_id: this.max_content_id 
+            });
           }.bind(this)}
         ></CreateContent>
       );
@@ -77,7 +81,7 @@ class App extends Component {
               i = i + 1;
             }
 
-            this.setState({ contents: _contents });
+            this.setState({mode:'read', contents: _contents, selected_content_id:_id });
           }.bind(this)}
 
           data={_content}
